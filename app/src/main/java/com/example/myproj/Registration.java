@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -140,8 +142,19 @@ public class Registration extends AppCompatActivity {
                     123);
 
         } else{
-            SendPostRequest runner = new SendPostRequest();
-            runner.execute(restUrl);
+            if (!edtRegPass.getText().toString().equals("") && !edtRegName.getText().toString().equals("")){
+                if(!TextUtils.isEmpty(edtRegEmail.getText().toString()) && Patterns.EMAIL_ADDRESS.matcher(edtRegEmail.getText().toString()).matches()){
+                    SendPostRequest runner = new SendPostRequest();
+                    runner.execute(restUrl);
+                } else {
+                    Toast.makeText(this,"Enter a valid Email Address",Toast.LENGTH_LONG).show();
+                }
+
+            } else {
+                Toast.makeText(this,"Enter a valid Data",Toast.LENGTH_LONG).show();
+
+            }
+
         }
     }
 }

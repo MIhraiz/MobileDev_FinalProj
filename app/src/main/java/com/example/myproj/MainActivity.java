@@ -9,7 +9,9 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -49,14 +51,26 @@ public class MainActivity extends AppCompatActivity {
         EditText edtPass = findViewById(R.id.edtPassword);
 
         String url = "http://192.168.0.111:80/rest/login.php?email=" + edtEmail.getText() + "&pass=" + edtPass.getText();
-        DownloadTextTask runner = new DownloadTextTask();
-        runner.execute(url);
-        boolean right = false;
 
-        if (!user.equals("") && !user.equals("Failed")) {
-            Intent intent = new Intent(this, Logedin.class);
-            intent.putExtra("USER", user);
-            startActivity(intent);
+
+        if (!edtPass.getText().toString().equals("")){
+            if(!TextUtils.isEmpty(edtEmail.getText().toString()) && Patterns.EMAIL_ADDRESS.matcher(edtEmail.getText().toString()).matches()){
+                DownloadTextTask runner = new DownloadTextTask();
+                runner.execute(url);
+                boolean right = false;
+
+                if (!user.equals("") && !user.equals("Failed")) {
+                    Intent intent = new Intent(this, Logedin.class);
+                    intent.putExtra("USER", user);
+                    startActivity(intent);
+                }
+            } else {
+                Toast.makeText(this,"Enter a valid Email Address",Toast.LENGTH_LONG).show();
+            }
+
+        } else {
+            Toast.makeText(this,"Enter a valid Data",Toast.LENGTH_LONG).show();
+
         }
 
 

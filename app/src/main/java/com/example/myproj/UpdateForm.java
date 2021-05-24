@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -41,7 +43,6 @@ public class UpdateForm extends AppCompatActivity {
         Intent intent = getIntent();
         USER = intent.getStringExtra("USER");
         tokens = USER.split(",");
-        System.out.println("***************************************************************: " + tokens[0]);
         edtUpEmail = findViewById(R.id.edtUpEmail);
         edtUpName = findViewById(R.id.edtUpName);
         edtUpPass = findViewById(R.id.edtUpPass);
@@ -133,6 +134,9 @@ public class UpdateForm extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String result) {
+            if(result.equals("Record updated successfully")){
+                USER = edtUpEmail+","+edtUpName+","+edtUpPass;
+            }
             Toast.makeText(UpdateForm.this, result, Toast.LENGTH_SHORT).show();
         }
     }
@@ -148,8 +152,19 @@ public class UpdateForm extends AppCompatActivity {
                     123);
 
         } else {
-            UpdateForm.SendPostRequest runner = new UpdateForm.SendPostRequest();
-            runner.execute(restUrl);
+            if (!edtUpPass.getText().toString().equals("") && !edtUpName.getText().toString().equals("")){
+                if(!TextUtils.isEmpty(edtUpEmail.getText().toString()) && Patterns.EMAIL_ADDRESS.matcher(edtUpEmail.getText().toString()).matches()){
+                    UpdateForm.SendPostRequest runner = new UpdateForm.SendPostRequest();
+                    runner.execute(restUrl);
+                } else {
+                    Toast.makeText(this,"Enter a valid Email Address",Toast.LENGTH_LONG).show();
+                }
+
+            } else {
+                Toast.makeText(this,"Enter a valid Data",Toast.LENGTH_LONG).show();
+
+            }
+
         }
     }
 }
