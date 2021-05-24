@@ -16,7 +16,6 @@ public class Logedin extends AppCompatActivity {
         setContentView(R.layout.activity_logedin);
         Intent intent3 = getIntent();
         user = intent3.getStringExtra("USER");
-        System.out.println(user);
     }
 
     public void onClick_UpdateFormbtn(View view) {

@@ -2,8 +2,11 @@ package com.example.myproj;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
@@ -54,4 +57,7 @@ public class DetailsActivity extends AppCompatActivity {
         dep.setText(course.getDep());
     }
 
+    public void AddToSchedule(View view) {
+        Toast.makeText(this, "             Coming soon.\nSee you in the next Project. :P", Toast.LENGTH_LONG).show();
+    }
 }

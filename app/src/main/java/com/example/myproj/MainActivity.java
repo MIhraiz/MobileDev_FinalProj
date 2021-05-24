@@ -29,9 +29,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (ContextCompat.checkSelfPermission(this,
+                Manifest.permission.INTERNET)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            ActivityCompat.requestPermissions(this,
+                    new String[]{Manifest.permission.INTERNET},
+                    123);
+        }
     }
 
-    public void onClick_Regbtn(View view){
+    public void onClick_Regbtn(View view) {
         Intent intent = new Intent(this, Registration.class);
         startActivity(intent);
     }
@@ -40,29 +48,22 @@ public class MainActivity extends AppCompatActivity {
         EditText edtEmail = findViewById(R.id.edtEmail);
         EditText edtPass = findViewById(R.id.edtPassword);
 
+        String url = "http://192.168.0.111:80/rest/login.php?email=" + edtEmail.getText() + "&pass=" + edtPass.getText();
+        DownloadTextTask runner = new DownloadTextTask();
+        runner.execute(url);
+        boolean right = false;
 
-        String url = "http://192.168.0.111:80/rest/login.php?email=" + edtEmail.getText()+"&pass=" + edtPass.getText();
-        if (ContextCompat.checkSelfPermission(this,
-                Manifest.permission.INTERNET)
-                != PackageManager.PERMISSION_GRANTED) {
-
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.INTERNET},
-                    123);
-            System.out.println("test");
-
-        } else{
-            DownloadTextTask runner = new DownloadTextTask();
-            runner.execute(url);
-            if(!user.equals("") && !user.equals("Failed")){
-                Intent intent = new Intent(this, Logedin.class);
-                intent.putExtra("USER", user);
-                startActivity(intent);
-            }
+        if (!user.equals("") && !user.equals("Failed")) {
+            Intent intent = new Intent(this, Logedin.class);
+            intent.putExtra("USER", user);
+            startActivity(intent);
         }
+
+
+
     }
-    private InputStream OpenHttpConnection(String urlString) throws IOException
-    {
+
+    private InputStream OpenHttpConnection(String urlString) throws IOException {
         InputStream in = null;
         int response = -1;
 
@@ -71,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (!(conn instanceof HttpURLConnection))
             throw new IOException("Not an HTTP connection");
-        try{
+        try {
             HttpURLConnection httpConn = (HttpURLConnection) conn;
             httpConn.setAllowUserInteraction(false);
             httpConn.setInstanceFollowRedirects(true);
@@ -81,16 +82,14 @@ public class MainActivity extends AppCompatActivity {
             if (response == HttpURLConnection.HTTP_OK) {
                 in = httpConn.getInputStream();
             }
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             Log.d("Networking1", ex.getLocalizedMessage());
             throw new IOException("Error connecting");
         }
         return in;
     }
-    private String DownloadText(String URL)
-    {
+
+    private String DownloadText(String URL) {
         int BUFFER_SIZE = 2000;
         InputStream in = null;
         try {
@@ -105,7 +104,7 @@ public class MainActivity extends AppCompatActivity {
         String str = "";
         char[] inputBuffer = new char[BUFFER_SIZE];
         try {
-            while ((charRead = isr.read(inputBuffer))>0) {
+            while ((charRead = isr.read(inputBuffer)) > 0) {
                 //---convert the chars to a String---
                 String readString =
                         String.copyValueOf(inputBuffer, 0, charRead);
@@ -125,12 +124,13 @@ public class MainActivity extends AppCompatActivity {
         protected String doInBackground(String... urls) {
             return DownloadText(urls[0]);
         }
+
         @Override
         protected void onPostExecute(String result) {
-            if(!result.equals("Failed")){
+            if (!result.equals("Failed")) {
                 user = result;
             } else {
-                Toast.makeText(getApplicationContext(),"Wrong Email or Password",Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Wrong Email or Password", Toast.LENGTH_SHORT).show();
             }
         }
     }
