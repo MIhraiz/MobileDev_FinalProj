@@ -25,4 +25,9 @@ public class Logedin extends AppCompatActivity {
         startActivity(intent2);
 
     }
+
+    public void onClick_CourseListbtn(View view) {
+        Intent intent = new Intent(this, ListActivity.class);
+        startActivity(intent);
+    }
 }

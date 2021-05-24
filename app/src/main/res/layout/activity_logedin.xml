@@ -35,6 +35,7 @@
             android:layout_width="180dp"
             android:layout_height="94dp"
             android:backgroundTint="#4CAF50"
+            android:onClick="onClick_CourseListbtn"
             android:text="Courses List"
             android:textSize="18sp" />
 
@@ -52,7 +53,8 @@
             android:layout_width="180dp"
             android:layout_height="94dp"
             android:backgroundTint="#4CAF50"
-            android:text="Logout" />
+            android:text="Logout"
+            android:textSize="18sp"  />
 
     </LinearLayout>
 
