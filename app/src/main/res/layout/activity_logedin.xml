@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    android:backgroundTint="#353333"
+    android:background="#f2feff  "
+    android:backgroundTint="#f2feff "
     tools:context=".Logedin">
 
     <TextView
@@ -14,9 +14,10 @@
         android:layout_height="52dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:text="Android Academy"
+        android:fontFamily="casual"
+        android:text="Android Shopping "
         android:textAlignment="center"
-        android:textColor="#4CAF50"
+        android:textColor="#00a3b6 "
         android:textSize="30sp"
         android:transformPivotY="150dp" />
 
@@ -33,23 +34,26 @@
             android:id="@+id/btnList"
             android:layout_width="180dp"
             android:layout_height="94dp"
-            android:backgroundTint="#4CAF50"
+            android:backgroundTint="#00a3b6 "
+            android:fontFamily="casual"
             android:onClick="onClick_CourseListbtn"
-            android:text="Courses List"
+            android:text="GO SHOPPING"
+            android:textColorHighlight="#00a3b6 "
+            android:textColorHint="#00a3b6 "
+            android:textColorLink="#00a3b6 "
             android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnUpdate"
             android:layout_width="180dp"
             android:layout_height="94dp"
-            android:backgroundTint="#4CAF50"
+            android:backgroundTint="#00a3b6 "
+            android:fontFamily="casual"
             android:onClick="onClick_UpdateFormbtn"
             android:text="Update"
             android:textSize="18sp" />
 
     </LinearLayout>
-
-
 
 
 </RelativeLayout>

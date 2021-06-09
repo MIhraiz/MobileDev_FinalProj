@@ -16,7 +16,7 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:background="#FFFFFF"
-        android:backgroundTint="#4CAF50"
+        android:backgroundTint="#005f6a"
         android:orientation="vertical">
 
         <ImageView
@@ -24,6 +24,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1.0"
+            android:background="#00a3b6"
+            android:backgroundTint="#00a3b6"
             android:contentDescription="Movie_IMG"
             android:scaleType="centerCrop" />
 
@@ -34,6 +36,8 @@
             android:layout_marginStart="4dp"
             android:layout_marginLeft="4dp"
             android:layout_marginBottom="4dp"
+            android:background="#00a3b6"
+            android:backgroundTint="#00a3b6"
             android:gravity="center_horizontal"
             android:paddingTop="5dp"
             android:textAlignment="center"

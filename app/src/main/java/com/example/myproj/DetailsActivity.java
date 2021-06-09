@@ -4,6 +4,8 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,9 +21,13 @@ import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 
+import pl.droidsonroids.gif.GifDrawable;
+import pl.droidsonroids.gif.GifImageView;
+
 
 public class DetailsActivity extends AppCompatActivity {
     int index;
+    WebView webView ;
     private Sport sport = null;
     private ImageView img;
     private TextView name;
@@ -65,7 +71,7 @@ public class DetailsActivity extends AppCompatActivity {
         String json = gson.toJson(sportArray);
         editor.putString("task list", json);
         editor.apply();
-        Toast.makeText(DetailsActivity.this,"saved",Toast.LENGTH_LONG).show();
+        Toast.makeText(DetailsActivity.this,"added to cart",Toast.LENGTH_LONG).show();
     }
     public void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
@@ -77,7 +83,6 @@ public class DetailsActivity extends AppCompatActivity {
             sportArray = new ArrayList<>();
 
         }
-     Toast.makeText(DetailsActivity.this,"loaded",Toast.LENGTH_LONG).show();
 
     }
     public void AddToCart(View view) {
@@ -85,6 +90,7 @@ public class DetailsActivity extends AppCompatActivity {
     }
     public void ViewCart(View view) {
     }
+
 
 
 }
