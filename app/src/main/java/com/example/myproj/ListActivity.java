@@ -6,14 +6,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.example.myproj.model.Course;
+import com.example.myproj.model.Sport;
+import com.example.myproj.model.Sport;
+
 import java.util.ArrayList;
 
 public class ListActivity extends AppCompatActivity {
     Adapter adapter;
-    public static ArrayList<Course> course;
+    public static ArrayList<Sport> sport;
+    Sport r = new Sport() ;
     private RecyclerViewClickListener recyclerViewClickListener;
     public int indexClicked;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,24 +37,30 @@ public class ListActivity extends AppCompatActivity {
 
         RecyclerView recyclerView = findViewById(R.id.course_recycle);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new Adapter(this,course,recyclerViewClickListener);
+        adapter = new Adapter(this, sport, recyclerViewClickListener);
         recyclerView.setAdapter(adapter);
     }
 
-    public void showDetails(View view){
+    public void showDetails(View view) {
         Intent intent = new Intent(this, DetailsActivity.class);
-        intent.putExtra("index",indexClicked);
+        intent.putExtra("index", indexClicked);
         startActivity(intent);
     }
 
-    public void loadData(){
-        course = new ArrayList<>();
+    int unicode=0x2B50;
+    String emoji = r.getEmoji(unicode) ;
+    public void loadData() {
+        sport = new ArrayList<>();
 
-        course.add(new Course("Mobile Application Development", "COMP438",
-                "Computer Science","Faculty Of Engineering And Technology",
-                "Course to Learn Android","3" ,R.drawable.mobile1));
+        sport.add(new Sport("Basketball",
+                "Description :balls",emoji+emoji ,
+                "Price : 20₪", R.drawable.basketball));
+        sport.add(new Sport("Basketball",
+                "balls", "10",
+                "20", R.drawable.by));
 
-        course.add(new Course("Computer Networks","ENCS3320",
+
+        /*course.add(new Course("Computer Networks","ENCS3320",
                 "Computer Systems Engineering","Faculty Of Engineering And Technology",
                 "Understand Computer Network consipts","3" ,R.drawable.network));
 
@@ -76,13 +86,14 @@ public class ListActivity extends AppCompatActivity {
                 "Arts","Arabic music",
                 "Knowledge about the basis of Arabic music","3",R.drawable.piano));
 
-        course.add(new Course("International Poplitical Economy","PHSS9350",
+     *//*   course.add(new Course("International Poplitical Economy","PHSS9350",
                 "Social Science","Faculty of Economy",
-                "Knowledge about the details in economy world","3",R.drawable.stack));
+                "Knowledge about the details in economy world","3",R.drawable.stack));*//*
 
         course.add(new Course("Dissertation","PHSS9350","Social Science",
                 "Faculty of Economy",
                 "learn how to write essay on a  economy","3",R.drawable.nerd));
 
+    }*/
     }
 }

@@ -132,7 +132,7 @@ public class Registration extends AppCompatActivity {
     }
 
     public void btnOnClick_Register(View view) {
-        String restUrl = "http://192.168.0.111:80/rest/reg.php";
+        String restUrl = "http://192.168.1.114:80/rest/reg.php";
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {

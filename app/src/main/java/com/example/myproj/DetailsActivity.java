@@ -1,5 +1,6 @@
 package com.example.myproj;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
@@ -10,20 +11,24 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
-import com.example.myproj.model.Course;
+import com.example.myproj.model.Sport;
+import com.example.myproj.model.Sport;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
+import java.util.ArrayList;
 
 
 public class DetailsActivity extends AppCompatActivity {
     int index;
-    private Course course = null;
+    private Sport sport = null;
     private ImageView img;
     private TextView name;
     private TextView description;
-    private TextView dep;
-    private TextView label;
-    private TextView faculty;
-    private TextView credit;
-
+    private TextView price;
+    private TextView rate;
+    ArrayList<Sport> sportArray;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,30 +39,52 @@ public class DetailsActivity extends AppCompatActivity {
         // get the course index to show it's details
         index = intent.getExtras().getInt("index");
         System.out.println(index);
-        course = ListActivity.course.get(index);
+        sport = ListActivity.sport.get(index);
         img = findViewById(R.id.imgD);
-        label = findViewById(R.id.label);
-        dep = findViewById(R.id.dep);
-        faculty = findViewById(R.id.faculty);
         name = findViewById(R.id.nameD);
         description = findViewById(R.id.description);
-        credit = findViewById(R.id.credit);
+        price = findViewById(R.id.price);
+        rate = findViewById(R.id.rate);
 
-        displayData(course);
+        displayData(sport);
+        loadData();
     }
 
-    private void displayData(Course course) {
-        Drawable dr = ContextCompat.getDrawable(this, course.getImageId());
+    private void displayData(Sport sport) {
+        Drawable dr = ContextCompat.getDrawable(this, sport.getImageId());
         img.setImageDrawable(dr);
-        name.setText(course.getName());
-        description.setText(course.getDescription());
-        label.setText(course.getLabel());
-        faculty.setText(course.getFaculty());
-        credit.setText(course.getCredit());
-        dep.setText(course.getDep());
+        name.setText(sport.getName());
+        description.setText(sport.getDescription());
+        price.setText(sport.getPrice());
+        rate.setText(sport.getRate());
+    }
+    public void saveData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        Gson gson = new Gson();
+        String json = gson.toJson(sportArray);
+        editor.putString("task list", json);
+        editor.apply();
+        Toast.makeText(DetailsActivity.this,"saved",Toast.LENGTH_LONG).show();
+    }
+    public void loadData() {
+        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+        Gson gson = new Gson();
+        String json = sharedPreferences.getString("task list", null);
+        Type type = new TypeToken<ArrayList<Sport>>() {}.getType();
+        sportArray = gson.fromJson(json, type);
+        if (sportArray == null) {
+            sportArray = new ArrayList<>();
+
+        }
+     Toast.makeText(DetailsActivity.this,"loaded",Toast.LENGTH_LONG).show();
+
+    }
+    public void AddToCart(View view) {
+        saveData();
+    }
+    public void ViewCart(View view) {
     }
 
-    public void AddToSchedule(View view) {
-        Toast.makeText(this, "             Coming soon.\nSee you in the next Project. :P", Toast.LENGTH_LONG).show();
-    }
+
 }

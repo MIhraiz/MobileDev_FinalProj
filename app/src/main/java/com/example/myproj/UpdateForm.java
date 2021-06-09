@@ -142,7 +142,7 @@ public class UpdateForm extends AppCompatActivity {
     }
 
     public void btnOnClick_Update(View view) {
-        String restUrl = "http://192.168.0.111:80/rest/update.php";
+        String restUrl = "http://192.168.1.114:80/rest/update.php";
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {

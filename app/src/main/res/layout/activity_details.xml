@@ -7,7 +7,7 @@
     android:backgroundTint="#353333"
     android:orientation="vertical">
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/imgD"
         android:layout_width="match_parent"
         android:layout_height="200dp"
@@ -28,37 +28,6 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-
-    <TextView
-        android:id="@+id/label"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="center_horizontal"
-        android:text="label"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/dep"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="center_horizontal"
-        android:text="department"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/faculty"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="center_horizontal"
-        android:text="faculty"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
@@ -70,7 +39,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/credit"
+        android:id="@+id/price"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:gravity="center_horizontal"
@@ -78,6 +47,16 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
+    <TextView
+        android:id="@+id/rate"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:gravity="center_horizontal"
+        android:text="credit"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
 
     <LinearLayout
 
@@ -87,15 +66,27 @@
 
 
         <Button
-            android:id="@+id/AddToSchedule"
-            android:layout_width="342dp"
+            android:id="@+id/AddToCart"
+            android:layout_width="144dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="45dp"
-            android:onClick="AddToSchedule"
-            android:text="Add To Schedule"
+            android:layout_marginTop="20dp"
+            android:onClick="AddToCart"
+            android:text="Add To Cart"
             tools:layout_editor_absoluteX="296dp"
             tools:layout_editor_absoluteY="0dp" />
+
+        <Button
+            android:id="@+id/ViewCart"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="20dp"
+            android:onClick="ViewCart"
+            android:text="View Cart"
+            tools:layout_editor_absoluteX="296dp"
+            tools:layout_editor_absoluteY="0dp" />
+
     </LinearLayout>
 
 </LinearLayout>
