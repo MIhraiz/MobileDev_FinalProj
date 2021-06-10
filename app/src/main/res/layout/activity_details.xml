@@ -3,8 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#4CAF50"
-    android:backgroundTint="#353333"
+    android:background="#99cccc  "
     android:orientation="vertical">
 
     <ImageView
@@ -17,10 +16,10 @@
     <TextView
         android:id="@+id/nameD"
         android:layout_width="match_parent"
-        android:layout_height="82dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
+        android:layout_marginTop="20dp"
         android:layout_marginBottom="4dp"
         android:gravity="center_horizontal"
         android:textAlignment="center"
@@ -28,41 +27,10 @@
         android:textSize="24sp"
         android:textStyle="bold" />
 
-
-    <TextView
-        android:id="@+id/label"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="center_horizontal"
-        android:text="label"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/dep"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="center_horizontal"
-        android:text="department"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-
-    <TextView
-        android:id="@+id/faculty"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:gravity="center_horizontal"
-        android:text="faculty"
-        android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp" />
-
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Description"
         android:textAlignment="center"
@@ -70,7 +38,17 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/credit"
+        android:id="@+id/price"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="credit"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/rate"
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:gravity="center_horizontal"
@@ -79,23 +57,44 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp" />
 
+
     <LinearLayout
 
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:orientation="horizontal">
 
-
         <Button
-            android:id="@+id/AddToSchedule"
-            android:layout_width="342dp"
+            android:id="@+id/ViewCart"
+            android:layout_width="139dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:layout_marginLeft="45dp"
-            android:onClick="AddToSchedule"
-            android:text="Add To Schedule"
+            android:layout_marginTop="20dp"
+            android:background="#00a3b6"
+            android:backgroundTint="#00a3b6"
+            android:onClick="ViewCart"
+            android:text="View Cart"
+            android:textColorHighlight="#00a3b6"
+            android:textColorLink="#00a3b6"
             tools:layout_editor_absoluteX="296dp"
             tools:layout_editor_absoluteY="0dp" />
+
+        <Button
+            android:id="@+id/AddToCart"
+            android:layout_width="144dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="20dp"
+            android:background="#00a3b6 "
+            android:backgroundTint="#00a3b6"
+            android:onClick="AddToCart"
+            android:text="Add To Cart"
+            android:textColorLink="#00a3b6"
+            tools:layout_editor_absoluteX="296dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+
+
     </LinearLayout>
 
 </LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#f2feff"
+    android:orientation="vertical"
+    tools:context=".CartView">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_rec"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        android:backgroundTint="#f2feff"
+        android:paddingBottom="60dp">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true"
+        android:background="#FFFFFF"
+        android:backgroundTint="#99cccc "
+        android:foregroundGravity="center"
+        android:orientation="horizontal"
+        android:scrollbars="vertical">
+
+        <Button
+            android:id="@+id/clear_cart"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:backgroundTint="#00a3b6 "
+            android:drawableTint="#4CAF50"
+            android:fontFamily="casual"
+            android:onClick="OnClick_ClearCart"
+            android:text="@string/clear_cart" />
+
+        <Button
+            android:id="@+id/proceed"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:backgroundTint="#00a3b6 "
+            android:drawableTint="#4CAF50"
+            android:fontFamily="casual"
+            android:onClick="OnClick_Proceed"
+            android:text="@string/proceed" />
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+</RelativeLayout>

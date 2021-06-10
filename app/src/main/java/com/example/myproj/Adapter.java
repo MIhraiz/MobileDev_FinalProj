@@ -12,17 +12,19 @@ import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.myproj.model.Course;
+import com.example.myproj.model.Sport;
+import com.example.myproj.model.Sport;
 
 import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
-    private Context context;
-    private ArrayList<Course> course;
-    private static RecyclerViewClickListener recyclerViewClickListener;
 
-    public Adapter(Context context, ArrayList<Course> course, RecyclerViewClickListener recyclerViewClickListener){
-        this.course = course;
+    public static RecyclerViewClickListener recyclerViewClickListener;
+    private Context context;
+    private ArrayList<Sport> sport;
+
+    public Adapter(Context context, ArrayList<Sport> sport, RecyclerViewClickListener recyclerViewClickListener){
+        this.sport = sport;
         this.context = context;
         Adapter.recyclerViewClickListener = recyclerViewClickListener;
     }
@@ -54,16 +56,23 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
         CardView cardView = holder.cardView;
         ImageView imageView = cardView.findViewById(R.id.image);
 
-        Drawable dr = ContextCompat.getDrawable(cardView.getContext(), course.get(index).getImageId());
+        Drawable dr = ContextCompat.getDrawable(cardView.getContext(), sport.get(index).getImageId());
         imageView.setImageDrawable(dr);
 
         TextView txt = cardView.findViewById(R.id.txtName);
-        txt.setText(course.get(index).getName());
+        txt.setText(sport.get(index).getName());
+
+        TextView price = cardView.findViewById(R.id.txtPrice);
+        price.setText(sport.get(index).getPrice().substring(sport.get(index).getPrice().lastIndexOf(" ")));
+
+        TextView rate = cardView.findViewById(R.id.txtRating);
+        rate.setText(sport.get(index).getRate());
+
     }
 
     @Override
     public int getItemCount() {
-        return course.size();
+        return sport.size();
     }
 
 }
