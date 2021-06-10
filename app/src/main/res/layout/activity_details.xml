@@ -16,7 +16,7 @@
     <TextView
         android:id="@+id/nameD"
         android:layout_width="match_parent"
-        android:layout_height="82dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginLeft="4dp"
         android:layout_marginTop="20dp"
@@ -30,7 +30,7 @@
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="Description"
         android:textAlignment="center"
@@ -40,7 +40,7 @@
     <TextView
         android:id="@+id/price"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="credit"
         android:textAlignment="center"
@@ -64,6 +64,20 @@
         android:layout_height="100dp"
         android:orientation="horizontal">
 
+        <Button
+            android:id="@+id/ViewCart"
+            android:layout_width="139dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="20dp"
+            android:background="#00a3b6"
+            android:backgroundTint="#00a3b6"
+            android:onClick="ViewCart"
+            android:text="View Cart"
+            android:textColorHighlight="#00a3b6"
+            android:textColorLink="#00a3b6"
+            tools:layout_editor_absoluteX="296dp"
+            tools:layout_editor_absoluteY="0dp" />
 
         <Button
             android:id="@+id/AddToCart"
@@ -79,20 +93,7 @@
             tools:layout_editor_absoluteX="296dp"
             tools:layout_editor_absoluteY="0dp" />
 
-        <Button
-            android:id="@+id/ViewCart"
-            android:layout_width="139dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="45dp"
-            android:layout_marginTop="20dp"
-            android:background="#00a3b6"
-            android:backgroundTint="#00a3b6"
-            android:onClick="ViewCart"
-            android:text="View Cart"
-            android:textColorHighlight="#00a3b6"
-            android:textColorLink="#00a3b6"
-            tools:layout_editor_absoluteX="296dp"
-            tools:layout_editor_absoluteY="0dp" />
+
 
     </LinearLayout>
 

@@ -18,9 +18,10 @@ import com.example.myproj.model.Sport;
 import java.util.ArrayList;
 
 public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
+
+    public static RecyclerViewClickListener recyclerViewClickListener;
     private Context context;
     private ArrayList<Sport> sport;
-    private static RecyclerViewClickListener recyclerViewClickListener;
 
     public Adapter(Context context, ArrayList<Sport> sport, RecyclerViewClickListener recyclerViewClickListener){
         this.sport = sport;
@@ -60,6 +61,13 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder>{
 
         TextView txt = cardView.findViewById(R.id.txtName);
         txt.setText(sport.get(index).getName());
+
+        TextView price = cardView.findViewById(R.id.txtPrice);
+        price.setText(sport.get(index).getPrice().substring(sport.get(index).getPrice().lastIndexOf(" ")));
+
+        TextView rate = cardView.findViewById(R.id.txtRating);
+        rate.setText(sport.get(index).getRate());
+
     }
 
     @Override

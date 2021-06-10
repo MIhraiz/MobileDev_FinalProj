@@ -1,6 +1,7 @@
 package com.example.myproj;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
@@ -74,13 +75,13 @@ public class ListActivity extends AppCompatActivity {
         sport.add(new Sport("Bicycle",
                 "Description : 18enc , made in Italy " + bicycle,emoji+emoji+emoji+emoji+emoji ,
                 "Price : 200₪", R.drawable.by));
-        sport.add(new Sport("dumbbells",
+        sport.add(new Sport("Dumbbells",
                 "Description : 3kg , 5kg , 7kg " + dumbbells ,emoji+emoji+emoji ,
                 "Price : 50₪", R.drawable.dumb));
         sport.add(new Sport("Yoga mats",
                 "Description : available in purple , pink and yellow " + yoga1 ,emoji ,
                 "Price : 30₪", R.drawable.yoga));
-        sport.add(new Sport("boots",
+        sport.add(new Sport("Boots",
                 "Description : Nike and Adidas  ",emoji+emoji+emoji+emoji ,
                 "Price : 120₪", R.drawable.boots));
         sport.add(new Sport("Running Machine",
@@ -89,48 +90,14 @@ public class ListActivity extends AppCompatActivity {
         sport.add(new Sport("Yoga equipments",
                 "Description : small dumbbells , mats " +yoga2,emoji+emoji+emoji ,
                 "Price : 150₪", R.drawable.yy));
-        sport.add(new Sport("boat",
+        sport.add(new Sport("Boat",
                 "Description : River boat " + boat,emoji+emoji+emoji+emoji+emoji ,
                 "Price : 400₪", R.drawable.boat));
 
+    }
 
-
-
-
-        /*course.add(new Course("Computer Networks","ENCS3320",
-                "Computer Systems Engineering","Faculty Of Engineering And Technology",
-                "Understand Computer Network consipts","3" ,R.drawable.network));
-
-        course.add(new Course("General Biology LAB","BIO111","Biology",
-                "Faculty of Science","Making Experience","1",R.drawable.bio));
-
-        course.add(new Course("Calculus","MATH1411","Mathematics",
-                "Faculty of Math","Review of Functions","4",R.drawable.math));
-
-        course.add(new Course("Fundamentals Of Nursing","MNURS1221","Nursing",
-                "Faculty of Pharmacy, Nursing and Health Professions",
-                "Learn the basic information about nursing","3",R.drawable.cartoon));
-
-        course.add(new Course("Architectural Drawings","ENAR1211","Architecture",
-                "Faculty of Engineering",
-                "Learn the technical drawing of a building ","3",R.drawable.d));
-
-        course.add(new Course("Mechanics","ENCE223","civil engineering",
-                "Faculty of Engineering",
-                "Learn the technical Machines","3",R.drawable.b));
-
-        course.add(new Course("Music Notation Software Skills ","MUSI226",
-                "Arts","Arabic music",
-                "Knowledge about the basis of Arabic music","3",R.drawable.piano));
-
-     *//*   course.add(new Course("International Poplitical Economy","PHSS9350",
-                "Social Science","Faculty of Economy",
-                "Knowledge about the details in economy world","3",R.drawable.stack));*//*
-
-        course.add(new Course("Dissertation","PHSS9350","Social Science",
-                "Faculty of Economy",
-                "learn how to write essay on a  economy","3",R.drawable.nerd));
-
-    }*/
+    public void OnClick_Cart(View view) {
+        Intent intent = new Intent(this, CartView.class);
+        startActivity(intent);
     }
 }

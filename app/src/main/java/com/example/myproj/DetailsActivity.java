@@ -65,13 +65,36 @@ public class DetailsActivity extends AppCompatActivity {
         rate.setText(sport.getRate());
     }
     public void saveData() {
-        SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        Gson gson = new Gson();
-        String json = gson.toJson(sportArray);
-        editor.putString("task list", json);
-        editor.apply();
-        Toast.makeText(DetailsActivity.this,"added to cart",Toast.LENGTH_LONG).show();
+
+
+        if (sportArray == null) {
+            sportArray = new ArrayList<>();
+        }
+        boolean exist = false;
+        for(int i = 0; i < sportArray.size(); i++){
+            if(sportArray.get(i).getName().equals(sport.getName())){
+                exist = true;
+                break;
+            }
+
+        }
+
+        if (!exist) {
+            SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPreferences.edit();
+            Gson gson = new Gson();
+            sportArray.add(sport);
+            Toast.makeText(DetailsActivity.this,"added to cart",Toast.LENGTH_LONG).show();
+            String json = gson.toJson(sportArray);
+            editor.putString("task list", json);
+            editor.apply();
+        } else {
+            Toast.makeText(DetailsActivity.this,"Already in the cart",Toast.LENGTH_LONG).show();
+        }
+
+
+
+
     }
     public void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("shared preferences", MODE_PRIVATE);
@@ -79,16 +102,14 @@ public class DetailsActivity extends AppCompatActivity {
         String json = sharedPreferences.getString("task list", null);
         Type type = new TypeToken<ArrayList<Sport>>() {}.getType();
         sportArray = gson.fromJson(json, type);
-        if (sportArray == null) {
-            sportArray = new ArrayList<>();
-
-        }
 
     }
     public void AddToCart(View view) {
         saveData();
     }
     public void ViewCart(View view) {
+        Intent intent = new Intent(this, CartView.class);
+        startActivity(intent);
     }
 
 

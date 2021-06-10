@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProj"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MySingleton"></activity>
+        <activity android:name=".Proceed"></activity>
         <activity android:name=".CartView" />
         <activity android:name=".DetailsActivity" />
         <activity android:name=".ListActivity" />

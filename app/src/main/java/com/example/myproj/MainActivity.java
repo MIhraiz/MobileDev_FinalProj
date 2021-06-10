@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         EditText edtEmail = findViewById(R.id.edtEmail);
         EditText edtPass = findViewById(R.id.edtPassword);
 
-        String url = "http://192.168.1.114:80/rest/login.php?email=" + edtEmail.getText() + "&pass=" + edtPass.getText();
+        String url = "http://192.168.0.111:80/rest/login.php?email=" + edtEmail.getText() + "&pass=" + edtPass.getText();
 
 
         if (!edtPass.getText().toString().equals("")){

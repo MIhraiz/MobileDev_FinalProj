@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">Group Project - 1</string>
+    <string name="app_name">Group Project - 2</string>
+    <string name="title_activity_cart">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="proceed">Proceed</string>
+    <string name="clear_cart">Clear Cart</string>
 </resources>
