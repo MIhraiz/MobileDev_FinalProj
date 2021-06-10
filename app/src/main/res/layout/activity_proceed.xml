@@ -11,36 +11,70 @@
     android:backgroundTint="#f2feff">
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_proceed"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/cart_proceed"
-        android:paddingBottom="60dp"
-        android:backgroundTint="#99cccc ">
+        android:backgroundTint="#99cccc "
+        android:paddingBottom="60dp">
 
     </androidx.recyclerview.widget.RecyclerView>
 
-    <androidx.appcompat.widget.LinearLayoutCompat
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
+        android:layout_height="100dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
         android:background="#FFFFFF"
         android:backgroundTint="#99cccc "
-        android:foregroundGravity="center"
-        android:scrollbars="vertical"
-        android:layout_alignParentBottom="true">
+        android:foregroundGravity="center">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:background="#FFFFFF"
+            android:backgroundTint="#99cccc "
+            android:foregroundGravity="center"
+            android:layout_height="50dp">
+
+            <Button
+                android:id="@+id/total_price"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_weight="1"
+                android:backgroundTint="#00a3b6 "
+                android:drawableTint="#4CAF50"
+                android:fontFamily="casual"/>
+
+            <Button
+                android:id="@+id/tax"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="1dp"
+                android:layout_marginLeft="1dp"
+                android:layout_marginRight="1dp"
+                android:layout_weight="1"
+                android:backgroundTint="#00a3b6 "
+                android:drawableTint="#4CAF50"
+                android:fontFamily="casual"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
         <Button
-            android:id="@+id/total_price"
+            android:id="@+id/total_price_tax"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="1dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="1dp"
+            android:layout_marginLeft="1dp"
+            android:layout_marginRight="1dp"
             android:layout_weight="1"
             android:backgroundTint="#00a3b6 "
             android:drawableTint="#4CAF50"
-            android:fontFamily="casual"
-            android:text="@string/clear_cart" />
-
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            android:fontFamily="casual"/>
+    </LinearLayout>
 
 
 

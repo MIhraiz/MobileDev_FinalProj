@@ -14,6 +14,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class Proceed extends AppCompatActivity {
@@ -27,6 +28,9 @@ public class Proceed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_proceed);
         Button pr = findViewById(R.id.total_price);
+        Button btnTax = findViewById(R.id.tax);
+        Button totalTax = findViewById(R.id.total_price_tax);
+
 
         Intent intent = getIntent();
         if(intent.hasExtra("Cart")){
@@ -44,19 +48,25 @@ public class Proceed extends AppCompatActivity {
             cartAdapter = new CartAdapter(this, cartItems);
             recyclerView.setAdapter(cartAdapter);
 
-            int price = 0;
+            double price = 0;
             for (CartItem i :cartItems){
-                System.out.println(i.getPrice());
                 String temp = i.getPrice();
-                System.out.println(temp.trim() + "              s" + temp.substring(temp.lastIndexOf(" "),temp.length()-1).trim());
                 int t = Integer.parseInt(temp.substring(temp.lastIndexOf(" "),temp.length()-1).trim());
                 price += t;
             }
-            String p = price + "₪";
+            DecimalFormat df2 = new DecimalFormat("#.##");
+
+            String p ="Total Price: " + df2.format(price) + "₪";
             pr.setText(p);
 
+            p = "Total Tax: " + df2.format( price*0.14) + "₪";
+            btnTax.setText(p);
+
+            totalTax.setText("Total Price With Tax: " + df2.format(price + price*0.14) + "₪");
+
         } else {
-            pr.setText("0000₪");
+            pr.setText("Total Price:  00.00₪");
+            btnTax.setText("Tax: 0.0₪");
         }
     }
 }
