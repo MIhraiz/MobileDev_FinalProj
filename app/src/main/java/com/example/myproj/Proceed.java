@@ -19,9 +19,9 @@ import java.util.ArrayList;
 
 public class Proceed extends AppCompatActivity {
 
+    CartAdapter cartAdapter;
     RecyclerView recyclerView;
     ArrayList<CartItem> cartItems;
-    CartAdapter cartAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
