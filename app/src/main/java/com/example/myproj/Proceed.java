@@ -67,6 +67,7 @@ public class Proceed extends AppCompatActivity {
         } else {
             pr.setText("Total Price:  00.00₪");
             btnTax.setText("Tax: 0.0₪");
+            totalTax.setText("Total Price With Tax: 00.00₪" );
         }
     }
 }
